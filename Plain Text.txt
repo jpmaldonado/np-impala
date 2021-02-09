@@ -30,7 +30,8 @@ PARTITIONED BY (initial string) STORED AS PARQUET;
 ```
 And insert into the table from the view:
 ```
-INSERT INTO dummy_partitioned PARTITION(initial) SELECT * FROM dummy_view;
+INSERT INTO dummy_partitioned PARTITION(initial) 
+SELECT * FROM dummy_view;
 ```
 
 ---
