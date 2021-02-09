@@ -1,0 +1,26 @@
+/* DATES / TIMESTAMP */
+-- The date 2020/12/01 means different things in different countries
+
+-- 2020-12-01 (YYYY-MM-DD) can be read natively in Impala
+-- select cast('2020-12-01' as timestamp); -- Will be OK
+-- select cast('2020/12/01' as timestamp); -- Will be not OK
+
+-- select from_unixtime(unix_timestamp('2020/12/01', 'yyyy/MM/dd'));
+
+-- select extract('2020-12-01', 'month');
+
+-- select extract(now(), 'minute');
+
+-- select now() + interval 2 weeks;
+
+select now() + interval 2 weeks - interval 6 hours; -- Adjust data in different intervals
+
+
+
+-----
+SELECT name, `date`, 
+AVG(close) OVER (ORDER BY `date` ROWS BETWEEN 3 PRECEDING AND CURRENT ROW) as avg_close_3d,
+AVG(close) OVER (ORDER BY `date` ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as avg_close_all
+FROM sp500
+WHERE name = 'GOOGL'
+;
