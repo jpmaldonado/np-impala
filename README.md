@@ -1,5 +1,5 @@
 # Impala for Business Intelligence 
-2-day course on Apache Impala (formerly Cloudera Impala)
+Short course on Apache Impala (formerly Cloudera Impala)
 
 ## Getting started
 
